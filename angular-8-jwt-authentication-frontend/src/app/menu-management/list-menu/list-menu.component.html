@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Menu List</h2>
+  </div>
+  <p class="my-5">
+    <a class="btn btn-primary" href="/create-menu" routerLink="create-menu">Add New Menu</a>
+  </p>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Menu Name</th>
+        <th>Url</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let menu of menus | async">
+        <td>{{menu.id}}</td>
+        <td>{{menu.menuName}}</td>
+        <td>{{menu.url}}</td>
+        <td><button (click)="deleteMenu(menu.id)" class="btn btn-danger">Delete</button>
+          <button (click)="updateMenu(menu.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+          <button (click)="menuDetails(menu.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
